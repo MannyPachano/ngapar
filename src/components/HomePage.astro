@@ -1,0 +1,502 @@
+---
+import { Image } from 'astro:assets';
+import VideoCardThumb from './VideoCardThumb.astro';
+import logo from '../assets/logo.png';
+import coverRose from '../assets/ngapar-plake-rose-cover.png';
+import coverTunnel from '../assets/tunnel-album-cover.png';
+import coverPrayer from '../assets/ngapar-prayer.png';
+import coverVitamin from '../assets/vitamin-album-cover.png';
+
+interface Props {
+  /** Optimized hero video poster URL from `getImage` */
+  heroPosterSrc: string;
+}
+
+const { heroPosterSrc } = Astro.props;
+---
+
+<!-- The vertical threshold rail -->
+<div class="rail"></div>
+
+<!-- Top nav -->
+<nav class="top">
+  <a href="#top" class="mark">
+    <Image
+      src={logo}
+      alt="NgaPar — Nay Lwin Soe, solo rock artist from Myanmar"
+      widths={[72, 96, 144, 192]}
+      sizes="36px"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <span>NgaPar</span>
+  </a>
+  <ul>
+    <li><a href="#listen">Listen</a></li>
+    <li><a href="#watch">Watch</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#booking">Booking</a></li>
+  </ul>
+  <button type="button" class="lang">EN / မြန်မာ</button>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-bg">
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster={heroPosterSrc}
+      aria-hidden="true"
+      disablepictureinpicture
+      disableremoteplayback
+    >
+      <source src="/hero-loop.webm" type="video/webm" />
+      <source src="/hero-loop.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <div class="hero-content">
+    <Image
+      src={logo}
+      alt=""
+      class="hero-sigil"
+      widths={[88, 132]}
+      sizes="56px"
+      loading="eager"
+      fetchpriority="low"
+      decoding="async"
+      aria-hidden="true"
+    />
+    <div class="timecode">01 — A man who's nothing without music</div>
+    <h1>Nga<span class="par">par</span></h1>
+    <div class="mm-name">ငပါ — Nay Lwin Soe</div>
+    <p class="hero-tag">Solo rock from Myanmar. The album is being written.</p>
+  </div>
+
+  <div class="hero-meta">
+    <div class="stat">Based in <strong>Myanmar</strong></div>
+    <div class="stat">Active since <strong>2014</strong></div>
+    <div class="stat">Status <strong>Solo · Pre-album</strong></div>
+    <a href="#listen" class="listen-cta">Listen now</a>
+  </div>
+</section>
+
+<!-- ============ ALBUM TEASE ============ -->
+<section class="album" id="album">
+  <div class="album-grid">
+    <div class="album-art reveal">
+      <span class="corners"></span>
+      <div class="album-art-inner">
+        <div class="stamp">Untitled · 2026</div>
+        <Image
+          src={logo}
+          alt="NgaPar debut album artwork — wordmark"
+          class="album-logo"
+          widths={[240, 360, 480]}
+          sizes="(max-width: 900px) 60vw, 320px"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="meta">First album · Two singles → LP</div>
+      </div>
+    </div>
+
+    <div class="album-text reveal">
+      <div class="timecode">02 — What's coming</div>
+      <h2>A debut <em>a decade</em><br />in the making.</h2>
+      <p>
+        Ten years on stage. Two bands. One quiet year alone. NgaPar's debut album is being built single
+        by single — a record shaped by everything that came before, and unburdened by it.
+      </p>
+      <p>Two singles arrive first. Then the LP.</p>
+
+      <div class="album-roadmap">
+        <div class="step done">
+          <span class="num">01</span>
+          <span class="when">2024</span>
+          <span class="label">"Vitamin" — first solo release</span>
+          <span class="status">Released</span>
+        </div>
+        <div class="step now">
+          <span class="num">02</span>
+          <span class="when">2026</span>
+          <span class="label">Single I — pre-album</span>
+          <span class="status">In production</span>
+        </div>
+        <div class="step next">
+          <span class="num">03</span>
+          <span class="when">2026</span>
+          <span class="label">Single II — pre-album</span>
+          <span class="status">Coming</span>
+        </div>
+        <div class="step next">
+          <span class="num">04</span>
+          <span class="when">TBA</span>
+          <span class="label">Debut album</span>
+          <span class="status">Coming</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LISTEN ============ -->
+<section id="listen" aria-labelledby="listen-heading">
+  <div class="section-head reveal">
+    <div>
+      <div class="timecode" style="margin-bottom: 16px;">03 — Discography</div>
+      <h2 id="listen-heading">Listen.</h2>
+      <div class="label-mm" style="margin-top: 8px;">နားထောင်ပါ</div>
+    </div>
+    <div class="timecode">Updated · 2026</div>
+  </div>
+
+  <ul class="tracks reveal">
+    <li class="track">
+      <span class="num">001</span>
+      <div>
+        <div class="title">Vitamin</div>
+        <span class="title-mm">ဗီတာမင်</span>
+      </div>
+      <span class="meta">Modern Rock · Single</span>
+      <span class="year">2024</span>
+      <a href="#" class="play" aria-label="Play Vitamin">▶</a>
+    </li>
+    <li class="track">
+      <span class="num">002</span>
+      <div>
+        <div class="title">Praying Hands</div>
+        <span class="title-mm">ဆုတောင်းသောလက်</span>
+      </div>
+      <span class="meta">Acoustic · Cover</span>
+      <span class="year">2024</span>
+      <a href="#" class="play" aria-label="Play Praying Hands">▶</a>
+    </li>
+    <li class="track">
+      <span class="num">003</span>
+      <div>
+        <div class="title">Single I</div>
+        <span class="title-mm">Pre-album · coming</span>
+      </div>
+      <span class="meta">Modern Rock</span>
+      <span class="year">2026</span>
+      <a href="#" class="play" aria-label="Play Single I">▶</a>
+    </li>
+    <li class="track">
+      <span class="num">004</span>
+      <div>
+        <div class="title">Single II</div>
+        <span class="title-mm">Pre-album · coming</span>
+      </div>
+      <span class="meta">Electro Rock</span>
+      <span class="year">2026</span>
+      <a href="#" class="play" aria-label="Play Single II">▶</a>
+    </li>
+  </ul>
+
+  <div class="platforms reveal">
+    <span class="label">Stream on</span>
+    <a href="#">YouTube</a>
+    <a href="#">Spotify</a>
+    <a href="#">Apple Music</a>
+    <a href="#">SoundCloud</a>
+    <a href="#">Bandcamp</a>
+  </div>
+</section>
+
+<!-- ============ WATCH ============ -->
+<section class="watch" id="watch" aria-labelledby="watch-heading">
+  <div class="section-head reveal">
+    <div>
+      <div class="timecode" style="margin-bottom: 16px;">04 — Visuals</div>
+      <h2 id="watch-heading">Watch.</h2>
+    </div>
+    <a href="#" class="btn btn-ghost">Full channel →</a>
+  </div>
+
+  <div class="video-grid reveal">
+    <a
+      href="https://youtube.com/@ngaparofficial"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="video-card">
+      <VideoCardThumb
+        src={coverRose}
+        alt="Video: AK-Chit Thaw — ချစ်သောရေ Floke Rose cover by NgaPar on YouTube"
+      />
+      <div class="play-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="24" height="24" focusable="false">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </div>
+      <div class="video-card-info">
+        <div class="when">1y ago · 9.1K views · Cover</div>
+        <div class="ttl">AK-Chit Thaw</div>
+        <div class="ttl-mm">ချစ်သောရေ — Floke Rose Cover</div>
+      </div>
+    </a>
+
+    <a
+      href="https://youtube.com/@ngaparofficial"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="video-card tall">
+      <VideoCardThumb
+        src={coverTunnel}
+        alt="Video: If I Die lyrics video — Sign of Fate & C Moon with NgaPar"
+      />
+      <div class="play-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="24" height="24" focusable="false">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </div>
+      <div class="video-card-info">
+        <div class="when">2y ago · 1.8K views · Lyrics Video</div>
+        <div class="ttl">If I Die</div>
+        <div class="ttl-mm">Sign of Fate & C Moon</div>
+      </div>
+    </a>
+
+    <a
+      href="https://youtube.com/@ngaparofficial"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="video-card">
+      <VideoCardThumb
+        src={coverPrayer}
+        alt="Video: တောင့်တခြင်း — Praying Hands official lyrics video by NgaPar"
+      />
+      <div class="play-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="24" height="24" focusable="false">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </div>
+      <div class="video-card-info">
+        <div class="when">4mo ago · 1.8K views · Lyrics Video</div>
+        <div class="ttl">တောင့်တခြင်း</div>
+        <div class="ttl-mm">Yearning — Official Lyrics</div>
+      </div>
+    </a>
+
+    <a
+      href="https://youtube.com/@ngaparofficial"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="video-card tall">
+      <VideoCardThumb
+        src={coverVitamin}
+        alt="Video: Vitamin — ဗီတာမင် official music video by NgaPar"
+      />
+      <div class="play-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="24" height="24" focusable="false">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </div>
+      <div class="video-card-info">
+        <div class="when">1y ago · 996 views · Official MV</div>
+        <div class="ttl">Vitamin</div>
+        <div class="ttl-mm">ဗီတာမင် — first solo release</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" aria-labelledby="about-heading">
+  <div class="section-head reveal">
+    <div>
+      <div class="timecode" style="margin-bottom: 16px;">05 — The story</div>
+      <h2 id="about-heading">About <em>NgaPar.</em></h2>
+    </div>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p class="about-quote">
+        "I started a music career in <span class="em">2014</span> as a normal bar singer. Now I'm alone,
+        building toward my first album."
+      </p>
+      <div class="about-body">
+        <p>
+          <strong>Nay Lwin Soe</strong> — known on stage as <strong>NgaPar</strong> — is a solo rock artist
+          from Myanmar. Born 28 January 1995, he started singing in bars at nineteen and has spent the last
+          decade learning his craft from the inside out: production diploma at Voice of the Youth Mawlamyine
+          in 2017, founding member of two bands across 2019–2025, and now a year into a solo project.
+        </p>
+        <p>
+          His first solo single dropped in 2024. Two more singles arrive before the debut album. The sound
+          moves between modern rock, electro rock, nu metal and progressive — built on melody, sung in
+          Burmese, and aimed outward.
+        </p>
+        <p>He is currently looking for band members.</p>
+      </div>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="timeline-item">
+        <div class="year-tl">2014</div>
+        <h4>Begins singing</h4>
+        <p>First steps as a bar singer in Myanmar.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="year-tl">2017</div>
+        <h4>Voice of the Youth, Mawlamyine</h4>
+        <p>Earns a music production diploma. Composes and performs at the VOY Mawlamyine Music Festival.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="year-tl">2019 — 2021</div>
+        <h4>First band</h4>
+        <p>Forms his first group. Disbanded in 2021.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="year-tl">2022 — 2025</div>
+        <h4>Sign of Fate</h4>
+        <p>Joins Sign of Fate. Departs in 2025 to go solo.</p>
+      </div>
+      <div class="timeline-item highlight">
+        <div class="year-tl">2024</div>
+        <h4>First own song</h4>
+        <p>"Vitamin" — his first release as a solo artist.</p>
+      </div>
+      <div class="timeline-item highlight">
+        <div class="year-tl">2026 →</div>
+        <h4>The album era</h4>
+        <p>Two singles, then the debut LP. Looking for band members.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EPK / BOOKING ============ -->
+<section class="epk" id="booking" aria-labelledby="booking-heading">
+  <div class="section-head reveal">
+    <div>
+      <div class="timecode" style="margin-bottom: 16px;">06 — Live & EPK</div>
+      <h2 id="booking-heading">Book. <em>Play.</em></h2>
+    </div>
+  </div>
+
+  <div class="epk-grid">
+    <div class="reveal">
+      <div class="epk-callout">
+        <div class="timecode">Open call</div>
+        <h3>Looking for band members.</h3>
+        <p>
+          NgaPar is currently solo and assembling a new live band — modern rock, electro rock, progressive.
+          Bassist, drummer, lead guitar, keys all welcome.
+        </p>
+        <div class="cta-row">
+          <a href="#" class="btn btn-primary">Reach out</a>
+          <a href="#" class="btn btn-ghost">What I'm building</a>
+        </div>
+      </div>
+
+      <div class="specs">
+        <h4>Booking & contact</h4>
+        <dl>
+          <dt>Phone</dt>
+          <dd><a href="tel:+95993594534">+95 99 359 4534</a></dd>
+          <dt>Based in</dt>
+          <dd>Myanmar</dd>
+          <dt>Available for</dt>
+          <dd>Live shows · Studio sessions · Collaborations</dd>
+          <dt>Languages</dt>
+          <dd>Burmese · English</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="specs">
+        <h4>Genres & influences</h4>
+        <div class="genres">
+          <span class="tag">Modern Rock</span>
+          <span class="tag">Electro Rock</span>
+          <span class="tag">Nu Metal</span>
+          <span class="tag">Progressive</span>
+          <span class="tag">Alternative</span>
+          <span class="tag">Acoustic</span>
+        </div>
+
+        <h4 style="margin-top: 32px;">Quick facts</h4>
+        <dl>
+          <dt>Real name</dt>
+          <dd>Nay Lwin Soe</dd>
+          <dt>DOB</dt>
+          <dd>28 Jan 1995</dd>
+          <dt>Active since</dt>
+          <dd>2014</dd>
+          <dt>Releases</dt>
+          <dd>1 single · LP in production</dd>
+          <dt>Past projects</dt>
+          <dd>Sign of Fate (2022 — 2025)</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER / CONNECT ============ -->
+<footer id="connect">
+  <div class="connect-grid">
+    <div>
+      <div class="footer-mark">Nga<em>par</em><span class="dot">.</span></div>
+      <p class="footer-blurb">"A man who's nothing without music."</p>
+      <Image
+        src={logo}
+        alt="NgaPar wordmark logo"
+        class="footer-logo"
+        widths={[160, 240, 320]}
+        sizes="120px"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+
+    <div>
+      <h5>Follow</h5>
+      <ul>
+        <li>
+          <a href="https://www.instagram.com/par_kyell.sof" target="_blank" rel="noopener noreferrer"
+            >Instagram <span class="mm">@par_kyell.sof</span></a
+          >
+        </li>
+        <li>
+          <a href="https://youtube.com/@ngaparofficial" target="_blank" rel="noopener noreferrer"
+            >YouTube <span class="mm">@ngaparofficial</span></a
+          >
+        </li>
+        <li>
+          <a href="https://www.tiktok.com/@ngapar95" target="_blank" rel="noopener noreferrer"
+            >TikTok <span class="mm">@ngapar95</span></a
+          >
+        </li>
+        <li>
+          <a href="https://www.facebook.com/share/18V5ZEZuJJ/" target="_blank" rel="noopener noreferrer"
+            >Facebook</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h5>Listen</h5>
+      <ul>
+        <li><a href="#">Spotify</a></li>
+        <li><a href="#">Apple Music</a></li>
+        <li><a href="#">SoundCloud</a></li>
+        <li><a href="#">Bandcamp</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="copy">© 2026 NgaPar · Nay Lwin Soe · All rights reserved</div>
+    <div class="copy"><strong>Be a simple man.</strong></div>
+  </div>
+</footer>

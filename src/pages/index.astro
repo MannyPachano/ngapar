@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HomePage from '../components/HomePage.astro';
+import heroPoster from '../assets/hero-poster.jpg';
+import { getImage } from 'astro:assets';
+
+const posterOptimized = await getImage({
+  src: heroPoster,
+  width: 1920,
+  format: 'jpg',
+  quality: 82,
+});
+
+const socialImage = await getImage({
+  src: heroPoster,
+  width: 1200,
+  height: 630,
+  fit: 'cover',
+  position: 'center',
+  format: 'jpg',
+  quality: 82,
+});
+
+const baseOrigin = Astro.site?.origin ?? Astro.url.origin;
+const canonicalUrl = new URL(Astro.url.pathname, baseOrigin).href;
+const ogImageUrl = new URL(socialImage.src, baseOrigin).href;
+---
+
+<Layout
+  canonicalUrl={canonicalUrl}
+  ogImage={ogImageUrl}
+  preloadImageHref={posterOptimized.src}
+>
+  <HomePage heroPosterSrc={posterOptimized.src} />
+</Layout>

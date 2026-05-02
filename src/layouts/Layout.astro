@@ -1,0 +1,96 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalUrl: string;
+  ogImage: string;
+  ogImageWidth?: number;
+  ogImageHeight?: number;
+  /** LCP hint: optimized hero poster URL */
+  preloadImageHref?: string;
+}
+
+const {
+  title = "NgaPar — A man who's nothing without music",
+  description =
+    'NgaPar (Nay Lwin Soe). Solo rock artist from Myanmar. Modern rock, electro rock, progressive. Debut album coming.',
+  canonicalUrl,
+  ogImage,
+  ogImageWidth = 1200,
+  ogImageHeight = 630,
+  preloadImageHref,
+} = Astro.props;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'MusicGroup',
+  name: 'NgaPar',
+  alternateName: ['ငပါ', 'Nay Lwin Soe'],
+  description,
+  genre: ['Modern Rock', 'Electro Rock', 'Nu Metal', 'Progressive rock', 'Alternative rock'],
+  url: canonicalUrl,
+  sameAs: [
+    'https://www.instagram.com/par_kyell.sof',
+    'https://youtube.com/@ngaparofficial',
+    'https://www.tiktok.com/@ngapar95',
+    'https://www.facebook.com/share/18V5ZEZuJJ/',
+  ],
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicons/favicon-48.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16.png" />
+    <link rel="icon" href="/favicons/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png" />
+    <link rel="manifest" href="/favicons/site.webmanifest" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    {preloadImageHref && <link rel="preload" as="image" href={preloadImageHref} fetchpriority="high" />}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content={String(ogImageWidth)} />
+    <meta property="og:image:height" content={String(ogImageHeight)} />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#0a0a0b" />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <slot />
+    <script is:inline>
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add('in');
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -80px 0px' }
+      );
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+      document.querySelector('.lang')?.addEventListener('click', () => {
+        alert('Burmese language version — to be added with full translations.');
+      });
+    </script>
+  </body>
+</html>
