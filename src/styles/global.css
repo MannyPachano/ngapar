@@ -145,19 +145,6 @@
     transition: width 0.3s ease;
   }
   nav.top a:hover::after { width: 100%; }
-  nav.top .lang {
-    color: var(--bone);
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    background: none;
-    border: 1px solid var(--rule-strong);
-    padding: 6px 12px;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-  }
-  .lang:hover { border-color: var(--ember); color: var(--ember); }
   @media (max-width: 720px) {
     nav.top ul { display: none; }
     nav.top { padding: 16px var(--gutter); }
