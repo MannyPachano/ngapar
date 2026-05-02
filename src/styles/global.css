@@ -801,7 +801,7 @@
     text-transform: uppercase;
     margin-bottom: 8px;
   }
-  .timeline-item h4 {
+  .timeline-item h3 {
     font-family: var(--serif);
     font-weight: 400;
     font-size: 22px;
