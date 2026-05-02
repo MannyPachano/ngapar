@@ -13,6 +13,9 @@ interface Props {
 }
 
 const { heroPosterSrc } = Astro.props;
+
+/** Opens WhatsApp chat (app or web), not SMS / tel dialer */
+const whatsappUrl = 'https://wa.me/95993594534';
 ---
 
 <!-- The vertical threshold rail -->
@@ -72,9 +75,9 @@ const { heroPosterSrc } = Astro.props;
       fetchpriority="low"
       decoding="async"
       aria-hidden="true"
-      quality={72}
+      quality={65}
     />
-    <div class="timecode">01 — A man who's nothing without music</div>
+    <div class="timecode">01 — Be a simple man</div>
     <h1>Nga<span class="par">par</span></h1>
     <div class="mm-name">ငပါ — Nay Lwin Soe</div>
     <p class="hero-tag">Solo rock from Myanmar. Building what comes next.</p>
@@ -99,11 +102,11 @@ const { heroPosterSrc } = Astro.props;
           src={logo}
           alt="NgaPar debut album artwork — wordmark"
           class="album-logo"
-          widths={[160, 240, 320]}
+          widths={[120, 160, 200]}
           sizes="(max-width: 900px) 45vw, 180px"
           loading="lazy"
           decoding="async"
-          quality={68}
+          quality={62}
         />
         <div class="meta">First album · Two singles → LP</div>
       </div>
@@ -396,7 +399,7 @@ const { heroPosterSrc } = Astro.props;
           Bassist, drummer, lead guitar, keys all welcome.
         </p>
         <div class="cta-row">
-          <a href="#" class="btn btn-primary">Reach out</a>
+          <a href={whatsappUrl} class="btn btn-primary" target="_blank" rel="noopener noreferrer">Reach out</a>
           <a href="#" class="btn btn-ghost">What I'm building</a>
         </div>
       </div>
@@ -405,7 +408,9 @@ const { heroPosterSrc } = Astro.props;
         <h4>Booking & contact</h4>
         <dl>
           <dt>Phone</dt>
-          <dd><a href="tel:+95993594534">+95 99 359 4534</a></dd>
+          <dd>
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">+95 99 359 4534</a>
+          </dd>
           <dt>Based in</dt>
           <dd>Myanmar</dd>
           <dt>Available for</dt>
@@ -451,7 +456,7 @@ const { heroPosterSrc } = Astro.props;
   <div class="connect-grid">
     <div>
       <div class="footer-mark">Nga<em>par</em><span class="dot">.</span></div>
-      <p class="footer-blurb">"A man who's nothing without music."</p>
+      <p class="footer-blurb">"Be a simple man."</p>
       <Image
         src={logo}
         alt="NgaPar wordmark logo"

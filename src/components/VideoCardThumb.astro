@@ -17,10 +17,10 @@ const { src, alt } = Astro.props;
     class="video-card-thumb-img"
     width={960}
     height={540}
-    widths={[280, 400, 520, 640]}
-    sizes="(max-width: 900px) 92vw, 38vw"
+    widths={[240, 320, 400]}
+    sizes="(max-width: 900px) 92vw, min(38vw, 400px)"
     loading="lazy"
     decoding="async"
-    quality={72}
+    quality={68}
   />
 </div>

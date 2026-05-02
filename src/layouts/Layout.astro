@@ -1,6 +1,10 @@
 ---
 import '../styles/global.css';
 import fontsDeferredHref from '../styles/fonts-deferred.css?url';
+import cormorantLatin400 from '@fontsource/cormorant-garamond/files/cormorant-garamond-latin-400-normal.woff2?url';
+import cormorantLatin400Italic from '@fontsource/cormorant-garamond/files/cormorant-garamond-latin-400-italic.woff2?url';
+import cormorantLatin500 from '@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-normal.woff2?url';
+import interLatin300 from '@fontsource/inter-tight/files/inter-tight-latin-300-normal.woff2?url';
 
 interface Props {
   title?: string;
@@ -14,7 +18,7 @@ interface Props {
 }
 
 const {
-  title = "NgaPar — A man who's nothing without music",
+  title = "NgaPar — Be a simple man",
   description =
     'NgaPar (Nay Lwin Soe). Solo rock artist from Myanmar. Modern rock, electro rock, progressive. Debut album coming.',
   canonicalUrl,
@@ -46,6 +50,10 @@ const jsonLd = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" href={cormorantLatin400} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={cormorantLatin400Italic} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={cormorantLatin500} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={interLatin300} as="font" type="font/woff2" crossorigin />
     <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
     <link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96.png" />
     <link rel="icon" type="image/png" sizes="48x48" href="/favicons/favicon-48.png" />
