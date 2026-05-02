@@ -24,11 +24,12 @@ const { heroPosterSrc } = Astro.props;
     <Image
       src={logo}
       alt="NgaPar — Nay Lwin Soe, solo rock artist from Myanmar"
-      widths={[72, 96, 144, 192]}
+      widths={[72, 96, 144]}
       sizes="36px"
       loading="eager"
       fetchpriority="high"
       decoding="async"
+      quality={78}
     />
     <span>NgaPar</span>
   </a>
@@ -45,15 +46,15 @@ const { heroPosterSrc } = Astro.props;
 <section class="hero" id="top">
   <div class="hero-bg">
     <video
-      autoplay
       muted
       loop
       playsinline
-      preload="metadata"
+      preload="none"
       poster={heroPosterSrc}
       aria-hidden="true"
       disablepictureinpicture
       disableremoteplayback
+      data-hero-video
     >
       <source src="/hero-loop.webm" type="video/webm" />
       <source src="/hero-loop.mp4" type="video/mp4" />
@@ -65,12 +66,13 @@ const { heroPosterSrc } = Astro.props;
       src={logo}
       alt=""
       class="hero-sigil"
-      widths={[88, 132]}
+      widths={[56, 112]}
       sizes="56px"
       loading="eager"
       fetchpriority="low"
       decoding="async"
       aria-hidden="true"
+      quality={72}
     />
     <div class="timecode">01 — A man who's nothing without music</div>
     <h1>Nga<span class="par">par</span></h1>
@@ -97,10 +99,11 @@ const { heroPosterSrc } = Astro.props;
           src={logo}
           alt="NgaPar debut album artwork — wordmark"
           class="album-logo"
-          widths={[240, 360, 480]}
-          sizes="(max-width: 900px) 60vw, 320px"
+          widths={[160, 240, 320]}
+          sizes="(max-width: 900px) 45vw, 180px"
           loading="lazy"
           decoding="async"
+          quality={68}
         />
         <div class="meta">First album · Two singles → LP</div>
       </div>
@@ -226,8 +229,8 @@ const { heroPosterSrc } = Astro.props;
       rel="noopener noreferrer"
       class="video-card">
       <VideoCardThumb
-        src={coverRose}
-        alt="Video: AK-Chit Thaw — ချစ်သောရေ Floke Rose cover by NgaPar on YouTube"
+        src={coverVitamin}
+        alt="Vitamin album cover — links to AK-Chit Thaw (ချစ်သောရေ Floke Rose cover) on YouTube"
       />
       <div class="play-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" width="24" height="24" focusable="false">
@@ -289,8 +292,8 @@ const { heroPosterSrc } = Astro.props;
       rel="noopener noreferrer"
       class="video-card tall">
       <VideoCardThumb
-        src={coverVitamin}
-        alt="Video: Vitamin — ဗီတာမင် official music video by NgaPar"
+        src={coverRose}
+        alt="Floke Rose cover artwork — links to Vitamin (ဗီတာမင်) official music video on YouTube"
       />
       <div class="play-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" width="24" height="24" focusable="false">
@@ -451,10 +454,11 @@ const { heroPosterSrc } = Astro.props;
         src={logo}
         alt="NgaPar wordmark logo"
         class="footer-logo"
-        widths={[160, 240, 320]}
+        widths={[120, 160, 240]}
         sizes="120px"
         loading="lazy"
         decoding="async"
+        quality={72}
       />
     </div>
 

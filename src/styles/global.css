@@ -1,18 +1,11 @@
-/* Self-hosted via @fontsource (vendored woff2 in node_modules → bundled at build) */
+/* Critical fonts (above-the-fold). Rest: fonts-deferred.css via non-blocking link in Layout. */
 @import '@fontsource/cormorant-garamond/300.css';
 @import '@fontsource/cormorant-garamond/400.css';
 @import '@fontsource/cormorant-garamond/400-italic.css';
 @import '@fontsource/cormorant-garamond/500.css';
-@import '@fontsource/cormorant-garamond/600.css';
-@import '@fontsource/cormorant-garamond/700.css';
 @import '@fontsource/inter-tight/300.css';
-@import '@fontsource/inter-tight/400.css';
-@import '@fontsource/inter-tight/500.css';
-@import '@fontsource/inter-tight/600.css';
 @import '@fontsource/padauk/400.css';
-@import '@fontsource/padauk/700.css';
 @import '@fontsource/jetbrains-mono/400.css';
-@import '@fontsource/jetbrains-mono/500.css';
 
   /* ============ TOKENS ============ */
   :root {

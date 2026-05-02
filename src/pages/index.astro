@@ -6,9 +6,9 @@ import { getImage } from 'astro:assets';
 
 const posterOptimized = await getImage({
   src: heroPoster,
-  width: 1920,
-  format: 'jpg',
-  quality: 82,
+  width: 1280,
+  format: 'webp',
+  quality: 72,
 });
 
 const socialImage = await getImage({

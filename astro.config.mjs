@@ -5,4 +5,7 @@ const siteUrl = process.env.PUBLIC_SITE_URL || process.env.URL;
 export default defineConfig({
   ...(siteUrl ? { site: siteUrl } : {}),
   compressHTML: true,
+  build: {
+    inlineStylesheets: 'always',
+  },
 });
