@@ -581,6 +581,7 @@
     transition: all 0.3s ease;
     color: var(--bone);
     font-size: 12px;
+    text-decoration: none;
   }
   .track:hover .play {
     border-color: var(--ember);
